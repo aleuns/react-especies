@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Ejemplo de degradado 1</title>
+</head>
+
+<body bgcolor=000000>
+
+<h1 align="center">Degradando...</h1>
+<h2>Ejemplo 1</h2>
+En esta página podemos ver un ejemplo de degradado de negro a blanco, con una sola pasada. Solo se ve el texto cuando el fondo es suficientemente blanco para que contraste.
+
+<script language="javascript">
+
+hexadecimal = new Array("0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F")
+
+function convierteHexadecimal(num){
+    var hexaDec = Math.floor(num/16)
+    var hexaUni = num - (hexaDec * 16)
+    return hexadecimal[hexaDec] + hexadecimal[hexaUni]
+}
+
+color_decimal = 0
+
+function degradado(){
+    color_decimal ++
+    color_hexadecimal = convierteHexadecimal(color_decimal)
+    document.bgColor = color_hexadecimal + color_hexadecimal + color_hexadecimal
+
+    //la llamo con un retardo
+    if (color_decimal < 255)
+       setTimeout("degradado()",1)
+}
+
+degradado()
+</script>
+</body>
+</html>
